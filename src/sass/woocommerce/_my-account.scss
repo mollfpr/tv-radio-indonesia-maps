@@ -1,0 +1,218 @@
+.woocommerce {
+	.woocommerce-MyAccount-navigation {
+		margin-bottom: 2.5rem;
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			li {
+				padding: side-values(0 0 1rem 20px);
+				position: relative;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				font-size: .75rem;
+				&:last-child {
+					padding-bottom: 0;
+				}
+
+				a {
+					color: $body-color;
+					display: inline;
+
+					&:before {
+						content:"";
+						position: absolute;
+						top: .3rem;
+						#{$left}: 0;
+						display: block;
+						width: 6px;
+						height: 6px;
+						border-radius: 50%;
+						font-style: normal;
+						font-weight: normal;
+						background-color: transparent;
+						transition: all .2s linear;
+						transform: translate(if-ltr(-5px, 5px), -5px);
+					}
+
+					&:hover {
+						color: theme-color("light");
+
+						&::before {
+							background-color: theme-color("primary");
+							transform: translate(0);
+						}
+					}
+				}
+			}
+		}
+	}
+	.woocommerce-MyAccount-content {
+		background-color: $box-bg;
+		padding: $box-padding / 2;
+		box-shadow: $box-drop-shadow;
+
+		@include media-breakpoint-up(md) {
+			padding: $box-padding;
+		}
+	}
+	form.woocommerce-form,
+	form.woocommerce-EditAccountForm {
+		label:not(.woocommerce-form__label-for-checkbox) {
+			font-size: .75rem;
+			font-family: $font-family-accent;
+			display: block;
+		}
+		.input-text {
+			display: block;
+			width: 100%;
+			padding: $input-padding-y $input-padding-x;
+			font-size: $font-size-base;
+			line-height: $input-line-height;
+			color: $input-color;
+			background-color: $input-bg;
+			background-clip: padding-box;
+			border: none;
+			border-bottom: $input-border-width solid $input-border-color;
+			&:focus {
+				border-bottom-color: $light;
+			}
+		}
+		.woocommerce-form-row {
+			margin-bottom: 3rem;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	form.woocommerce-EditAccountForm {
+		.input-text + span em {
+			font-size: .75rem;
+		}
+
+		legend {
+			margin-bottom: $headings-margin-bottom;
+			font-family: $headings-font-family;
+			font-weight: $headings-font-weight;
+			font-size: $h4-font-size;
+			line-height: $headings-line-height;
+			color: $headings-color;
+		}
+		button.woocommerce-Button {
+			margin-top: 1.5rem;
+		}
+	}
+	button.woocommerce-Button {
+		display: inline-block;
+		font-weight: $btn-font-weight;
+		font-family: $btn-font-family;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: $btn-border-width solid transparent;
+		@include transition($btn-transition);
+		@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+		@include button-variant($primary, $primary);
+	}
+
+	// Login
+	form.woocommerce-form-login {
+		background-color: $box-bg;
+		padding: $box-padding / 2;
+		box-shadow: $box-drop-shadow;
+		border: none;
+		border-radius: 0;
+		@include media-breakpoint-up(md) {
+			padding: $box-padding;
+		}
+		.form-row {
+			padding: 0;
+		}
+		.woocommerce-form-row + .woocommerce-form-row {
+			margin-bottom: 1.5rem;
+		}
+		button.woocommerce-Button {
+			@include media-breakpoint-up(sm) {
+				@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $line-height-lg, $btn-border-radius-lg);
+			}
+			
+		}
+		.woocommerce-form__label-for-checkbox {
+			padding-top: .65rem;
+			margin-#{$left}: 3.5rem;
+			@include media-breakpoint-up(sm) {
+				padding-top: .85rem;
+				margin-#{$left}: 4.5rem;
+			}
+			input {
+				position: absolute;
+				z-index: -1;
+				opacity: 0;
+			}
+			span {
+				position: relative;
+				&:before {
+					position: absolute;
+					top: 0.1875rem;
+					#{$left}: -2rem;
+					display: block;
+					width: 1.125rem;
+					height: 1.125rem;
+					pointer-events: none;
+					content: "";
+					-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+					background-color: transparent;
+					border: 2px solid $secondary;
+					@include border-radius($custom-checkbox-indicator-border-radius);
+				}
+				&:after {
+					position: absolute;
+					top: 0.1875rem;
+					#{$left}: -2rem;
+					display: block;
+					width: 1.125rem;
+					height: 1.125rem;
+					content: "";
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: 13px 10px;
+				}
+			}
+			input:checked ~ span {
+				&::before {
+					border: $custom-control-indicator-border-checked;
+					@include gradient-bg($custom-control-indicator-checked-bg);
+				}
+				&::after {
+					background-image: $custom-checkbox-indicator-icon-checked;
+				}
+			}
+		}
+		.woocommerce-LostPassword {
+			margin-top: 1.5rem;
+			font-size: .857rem;
+			&:before {
+				content: "\f27c";
+				padding-#{$right}: .5rem;
+				display: inline-block;
+				font-family: "Ionicons";
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				text-rendering: auto;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				font-size: 20px;
+				vertical-align: middle;
+				color: $light;
+			}
+		}
+	}
+}

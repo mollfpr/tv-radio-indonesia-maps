@@ -1,0 +1,146 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+  ## Blog
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Basic Imports
+--------------------------------------------------------------*/
+@import "config/imports";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/accordion";
+@import "components/alert";
+@import "components/breadcrumb";
+@import "components/buttons";
+@import "components/certificates";
+@import "components/contact-info";
+@import "components/custom-forms";
+@import "components/features-list";
+@import "components/dropdown";
+@import "components/forms";
+@import "components/gmap";
+@import "components/magnific-popup";
+@import "components/social-links";
+@import "components/icobox";
+@import "components/pagination";
+@import "components/table";
+@import "components/team";
+@import "components/testimonials";
+@import "components/revolution-slider";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/base";
+@import "base/header";
+@import "base/header-nav";
+@import "base/header-search";
+@import "base/page-heading";
+@import "base/content";
+@import "base/footer";
+@import "base/404";
+@import "base/wp-basic";
+@import "base/misc";
+@import "base/helpers";
+@import "base/preloader";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "content/code";
+@import "content/type";
+@import "content/section";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "widgets/widgets";
+@import "widgets/widget-schedule";
+@import "widgets/widget-social-links";
+@import "widgets/widget-categories";
+@import "widgets/widget-posts";
+@import "widgets/widget-tags";
+@import "widgets/widget-instagram";
+@import "widgets/widget-archive";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Blog
+--------------------------------------------------------------*/
+@import "blog/post";
+@import "blog/pagination";
+@import "blog/post-author";
+@import "blog/post-related";
+@import "blog/post-comments";
+@import "blog/post-grid";
+
+/*--------------------------------------------------------------
+# Rooms
+--------------------------------------------------------------*/
+@import "room/room-rating";
+@import "room/room-rating-bars";
+@import "room/room-meta";
+@import "room/room-filter";
+@import "room/room";
+@import "room/room-single";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";
+
+/*--------------------------------------------------------------
+# Elementor
+--------------------------------------------------------------*/
+@import "elementor/elementor";
+
+/*--------------------------------------------------------------
+# WooCommerce
+--------------------------------------------------------------*/
+@import "woocommerce/woocommerce";
+
+/*--------------------------------------------------------------
+# Slick
+--------------------------------------------------------------*/
+@import "slick";

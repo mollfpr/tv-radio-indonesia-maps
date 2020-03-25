@@ -1,0 +1,69 @@
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-notice,
+.woocommerce-message {
+	padding: $alert-padding-y $alert-padding-x;
+	margin-bottom: $alert-margin-bottom;
+	border: $alert-border-width solid transparent;
+	@include border-radius($alert-border-radius);
+	padding-#{$left}: 80px;
+	position: relative;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		#{$left}: 0;
+		top: 0;
+		width: 60px;
+		text-align: center;
+		bottom: 0;
+		background-color: rgba(255,255,255,.2);
+	}
+
+	&::after {
+		content: "\e617";
+		display: block;
+		position: absolute;
+		#{$left}: 0;
+		top: 50%;
+		width: 60px;
+		height: 30px;
+		text-align: center;
+		font-size: 1.25rem;
+		font-family: 'simple-line-icons';
+		transform: translateY(-50%);
+		z-index: 1;
+	}
+
+	a.button.woocommerce-Button {
+		float: none;
+		margin-#{$right}: 1rem;
+		@include button-variant($secondary, $secondary);
+	}
+}
+
+.woocommerce-notice--success {
+	@include alert-variant($success, transparent, theme-color("light"));
+	&::after {
+		content: "\e080";
+	}
+}
+
+.woocommerce-info {
+	@include alert-variant($info, transparent, theme-color("light"));
+	&:after {
+		content: "\e08b";
+	}
+}
+
+.woocommerce-error {
+	@include alert-variant($danger, transparent, theme-color("light"));
+	&:after {
+		content: "\e082";
+	}
+}
+
+.woocommerce-message {
+	@include alert-variant($warning, transparent, theme-color("light"));
+}

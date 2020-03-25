@@ -1,0 +1,105 @@
+// Elementor Video Frame
+
+.elementor {
+	.elementor-custom-embed-play {
+		display: block;
+		width: 60px;
+		height: 60px;
+		cursor: pointer;
+		z-index: 1;
+		@include media-breakpoint-up(lg) {
+			width: 100px;
+			height: 100px;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			#{$left}: 0;
+			#{$right}: 0;
+			bottom: 0;
+			top: 0;
+			display: block;
+			background-color: $white;
+			opacity: .1;
+			border-radius: 50%;
+			z-index: -1;
+			transform: scale(1.15);
+			transition: all 0.2s ease;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			#{$left}: 0;
+			#{$right}: 0;
+			bottom: 0;
+			top: 0;
+			border-radius: 50%;
+			background-color: theme-color("primary");
+		}
+		&:hover {
+			&:before {
+				transform: scale(1);
+			}
+		}
+		i {
+			position: relative;
+			font-size: 24px;
+			line-height: 60px;
+			z-index: 2;
+			opacity: 1;
+			text-shadow: none;
+			transform: translate(2px, if-ltr(2px, -2px));
+			@include media-breakpoint-up(lg) {
+				font-size: 40px;
+				line-height: 100px;
+				transform: translate(4px, if-ltr(3px, -3px));
+			}
+			&:before {
+				content: "\f215";
+				display: inline-block;
+				font-family: "Ionicons";
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				text-rendering: auto;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+			}
+		}
+	}
+
+	.elementor-custom-embed-image-overlay {
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			#{$left}: 0;
+			#{$right}: 0;
+			bottom: 0;
+			top: 0;
+			z-index: 1;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+	}
+}
+
+// Shordcodes Demo
+
+.elementor-section-inline-elements {
+	.elementor-widget-wrap {
+		margin: -7px;
+		.elementor-element {
+			display: inline-block;
+			width: auto;
+			margin: 7px;
+		}
+	}
+}
+
+
+// Removes bottom margin
+.elementor-widget:not(:last-child) {
+	margin-bottom: 0 !important;
+}

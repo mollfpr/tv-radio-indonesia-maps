@@ -1,0 +1,337 @@
+/**
+ *
+ * Widget: Instagram
+ *
+ */
+
+.widget-instagram,
+.elementor-widget-wp-widget-instagram-widget {
+	.widget__content {
+		text-align: center;
+	}
+}
+
+	// Instagram list
+	.widget-instagram__list {
+		list-style-type: none;
+		padding: 0;
+		margin: side-values(0 -2px -14px -2px);
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+	.elementor-widget-container {
+		.widget-instagram__item {
+			margin-bottom: 4px;
+		}
+
+		.widget-instagram__img {
+			height: 100%;
+		}
+	}
+		// Instagram item
+		.widget-instagram__item {
+			width: 16.66%;
+			height: 0;
+			padding-bottom: calc(16.66% - 4px);
+			margin-bottom: 14px;
+			display: flex;
+			align-items: stretch;
+			position: relative;
+
+			.widget--sidebar & {
+				margin-bottom: 4px;
+			}
+
+			.widget-instagram__list--4cols & {
+				width: 25%;
+				padding-bottom: calc(25% - 4px);
+			}
+
+			@media (min-width: 768px) {
+				width: 33.3%;
+				padding-bottom: calc(33.3% - 4px);
+
+				.widget-instagram__list--4cols & {
+					width: 25%;
+					padding-bottom: calc(25% - 4px);
+				}
+			}
+		}
+			// Image
+			.widget-instagram__img {
+				vertical-align: top;
+				margin: 0;
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+				transition: opacity .3s ease-in-out;
+			}
+
+			// Link wraps image
+			.widget-instagram__link-wrapper {
+				display: block;
+				position: absolute;
+				#{$left}: 0;
+				top: 0;
+				overflow: hidden;
+				width: calc(100% - 4px);
+				height: 100%;
+				display: flex;
+				align-items: stretch;
+				margin-#{$left}: 2px;
+				margin-#{$right}: 2px;
+
+				// Left & Right Border
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					background-color: theme-color("primary");
+					transition: transform 0.2s;
+					top: 0;
+					width: 4px;
+					height: 100%;
+					transform: scale3d(1, 0, 1);
+					z-index: 1;
+				}
+
+				// Left
+				&::before {
+					#{$left}: 0;
+					transform-origin: 50% 100%;
+				}
+
+				// Right
+				&::after {
+					#{$right}: 0;
+					transform-origin: 50% 0%;
+				}
+
+				// Hover State
+				&:hover {
+
+					&::before,
+					&::after,
+					.widget-instagram__plus-sign::before,
+					.widget-instagram__plus-sign::after {
+						transform: scale3d(1, 1, 1);
+						transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+						transition-duration: 0.4s;
+					}
+
+					&::after {
+						transition-delay: 0s;
+					}
+
+					.widget-instagram__plus-sign::before {
+						transition-delay: 0.2s;
+					}
+
+					.widget-instagram__plus-sign::after {
+						transition-delay: 0.2s;
+					}
+
+					.widget-instagram__img {
+						opacity: .5;
+					}
+
+					.widget-instagram__item-meta {
+						opacity: 1;
+					}
+				}
+			}
+
+				// Plus sign appears on hover
+				.widget-instagram__plus-sign {
+					position: relative;
+					display: block;
+					width: 100%;
+
+					// Top & Bottom Border
+					&::before,
+					&::after {
+						content:"";
+						position: absolute;
+						background-color: theme-color("primary");
+						transition: transform 0.2s;
+						#{$left}: 0;
+						width: 100%;
+						height: 4px;
+						transform: scale3d(0, 1, 1);
+						z-index: 1;
+					}
+
+					// Top
+					&::before {
+						top: 0;
+						transform-origin: 0 50%;
+					}
+
+					// Bottom
+					&::after {
+						bottom: 0;
+						transform-origin: 100% 50%;
+					}
+				}
+
+				// Meta
+				.widget-instagram__item-meta {
+					display: none;
+					position: absolute;
+					#{$left}: 0;
+					#{$right}: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					text-align: center;
+					font-family: $font-family-accent;
+					font-size: .75rem;
+					color: $white;
+					transition: opacity 0.3s ease;
+					opacity: 0;
+
+					.widget & {
+						display: none;
+					}
+
+					@include media-breakpoint-up(md) {
+						display: block;
+					}
+
+					i {
+						font-size: 20px;
+						line-height: 1.2em;
+						vertical-align: middle;
+						margin-#{$right}: 0.2em;
+					}
+				}
+					.widget-instagram__item-meta-likes,
+					.widget-instagram__item-meta-comments {
+						padding: 0 1em;
+					}
+
+	.widget-instagram__list + .widget-instagram__btn {
+		margin-top: 4rem;
+		.widget & {
+			padding: .8rem 2rem;
+			@include media-breakpoint-down(md) {
+				padding-#{$left}: 20px;
+				padding-#{$right}: 20px;
+			}
+		}
+		.widget--sidebar & {
+			margin-top: 2rem;
+		}
+	}
+
+
+// Smash Balloon Instagram Feed
+.sbi_photo_wrap {
+
+	// Left & Right Border
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		background-color: theme-color("primary");
+		transition: transform 0.2s;
+		top: 0;
+		width: 4px;
+		height: 100%;
+		transform: scale3d(1, 0, 1);
+		z-index: 1;
+	}
+
+	// Left
+	&::before {
+		#{$left}: 0;
+		transform-origin: 50% 100%;
+	}
+
+	// Right
+	&::after {
+		#{$right}: 0;
+		transform-origin: 50% 0%;
+	}
+
+	// Hover State
+	.sbi_item:hover & {
+
+		&::before,
+		&::after,
+		.sbi_photo::before,
+		.sbi_photo::after {
+			transform: scale3d(1, 1, 1);
+			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			transition-duration: 0.4s;
+		}
+
+		&::after {
+			transition-delay: 0s;
+		}
+
+		.sbi_photo::before {
+			transition-delay: 0.2s;
+		}
+
+		.sbi_photo::after {
+			transition-delay: 0.2s;
+		}
+	}
+}
+
+.sbi_photo {
+	position: relative;
+	display: block;
+	width: 100%;
+
+	// Top & Bottom Border
+	&::before,
+	&::after {
+		content:"";
+		position: absolute;
+		background-color: theme-color("primary");
+		transition: transform 0.2s;
+		#{$left}: 0;
+		width: 100%;
+		height: 4px;
+		transform: scale3d(0, 1, 1);
+		z-index: 1;
+	}
+
+	// Top
+	&::before {
+		top: 0;
+		transform-origin: 0 50%;
+	}
+
+	// Bottom
+	&::after {
+		bottom: 0;
+		transform-origin: 100% 50%;
+	}
+}
+
+#sb_instagram {
+
+	// Follow and Load More buttons buton
+	.sbi_follow_btn a,
+	#sbi_load .sbi_load_btn {
+		@include button-outline-variant($secondary, #fff);
+		margin-top: 2rem;
+
+		// Make button big only in Elementor and on desktop
+		.elementor-shortcode & {
+			@include media-breakpoint-up(md) {
+				@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $line-height-lg, $btn-border-radius-lg);
+				margin-top: 4rem;
+			}
+		}
+
+		&:hover {
+			box-shadow: none;
+		}
+	}
+}

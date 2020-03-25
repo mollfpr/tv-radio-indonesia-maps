@@ -1,0 +1,110 @@
+/*=============================================
+=            #Page Heading            =
+=============================================*/
+.page-heading {
+	text-align: center;
+	background-color: $secondary;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	z-index: 2;
+
+	// Overlay
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		#{$left}: 0;
+		#{$right}: 0;
+		bottom: 0;
+		top: 0;
+	}
+}
+	.page-heading__inner {
+		position: relative;
+		padding-top: 40px;
+		padding-bottom: 40px;
+
+		@include media-breakpoint-up(sm) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+
+		@include media-breakpoint-up(md) {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+
+		@include media-breakpoint-up(lg) {
+			padding-top: 134px;
+			padding-bottom: 134px;
+		}
+	}
+	// Page Title
+	.page-heading__title {
+		font-family: $page-heading-font-family;
+		letter-spacing: $page-heading-letter-spacing;
+		text-transform: $page-heading-text-transform;
+		font-weight: $page-heading-font-weight;
+		color: $page-heading-color;
+		line-height: 1.2em;
+		margin: 0;
+		width: 100%;
+
+		// Maximum font-size
+		@include media-breakpoint-up(lg) {
+			font-size: $page-heading-font-size;
+		}
+		// Font-size between 768 - 992
+		@include media-breakpoint-down(md) {
+			$map: (768px: 32px, 992px: 46px);
+			font-size: linear-interpolation($map)!important;
+		}
+		// Font-size between 576 - 768
+		@include media-breakpoint-down(sm) {
+			$map: (576px: 24px, 768px: 32px);
+			font-size: linear-interpolation($map)!important;
+		}
+		// Minimum font-size
+		@include media-breakpoint-down(xs) {
+			font-size: 24px!important;
+		}
+
+		&::after {
+			content:".";
+			color: theme-color("primary");
+			margin-left: -0.2em;
+		}
+	}
+
+	.page-heading__post-title {
+		line-height: 1.1em!important;
+		text-transform: none!important;
+		&::after {
+			display: none;
+		}
+	}
+
+	// Page Breadcrumbs
+	.page-heading .breadcrumbs {
+		margin-bottom: 0;
+		justify-content: center;
+	}
+
+	.page-heading {
+		.post__meta {
+			width: 100%;
+		}
+	}
+
+	.page-heading .page-heading__title + .breadcrumbs {
+		width: 100%;
+		margin-top: .5em;
+
+		@include media-breakpoint-up(sm) {
+			margin-top: 1.2em;
+		}
+	}
+
+/*=====  End of #Page Heading  ======*/

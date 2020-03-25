@@ -1,0 +1,133 @@
+.booked-fea-appt-list {
+
+	.appt-block {
+		padding: 24px 0;
+		border-top: 1px solid rgba(255,255,255,.05);
+		display: block;
+		font-size: .875rem;
+
+		& > i.booked-icon {
+			width: 23px;
+			color: $white;
+		}
+
+		a {
+
+			&.delete {
+				float: $right;
+				margin: side-values(2px 0 0 15px);
+				font-size: 14px;
+				line-height: 1.3;
+				color: lighten($danger, 10%);
+
+				&:hover {
+					color: $danger;
+				}
+			}
+
+			// Additional Information
+			&.booked-show-cf {
+				font-size: 13px;
+			}
+		}
+
+		// Passed appointment
+		.late-appt {
+			color: lighten($danger, 10%);
+		}
+
+		button {
+			margin: 0;
+		}
+
+
+		.booked-wc_status-text {
+
+			a {
+				font-size: 12px;
+			}
+
+			&.awaiting {
+
+				&,
+				& a {
+					color: $warning;
+				}
+			}
+
+			&.paid {
+				text-transform: uppercase;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+
+.booked-fea-buttons,
+.booked-wc_status-text {
+	float: $right;
+	margin-top: 7px;
+}
+
+body {
+
+	#booked-profile-page {
+
+		.booked-tabs {
+
+			li {
+
+				// Badge
+				.counter {
+					display: none;
+					position: absolute;
+					right: 8px;
+					top: 8px;
+					width: 18px;
+					height: 18px;
+					color: #fff;
+					background: $danger;
+					text-align: center;
+					font-size: 10px;
+					line-height: 18px;
+					font-weight: 400;
+					padding: 0 5px;
+					height: 18px;
+					border-radius: 10px;
+
+					@media (max-width: 576px) {
+						display: inline-block;
+						position: static;
+						margin-#{$left}: .75em;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+body {
+
+	.booked-modal {
+
+		.bm-window {
+
+			p {
+
+				&.fea-modal-title {
+					font-size: 15px;
+					font-weight: 600;
+
+					&.fea-bordered {
+						border-top: 1px solid rgba(255,255,255,.05);
+						padding-top: 20px;
+						margin-top: 20px;
+					}
+				}
+			}
+		}
+	}
+}

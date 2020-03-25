@@ -1,0 +1,115 @@
+// Demo Buttons
+.demo-btn-wrapper {
+
+	.btn + .btn {
+		margin-#{$left}: 1em;
+	}
+
+	.btn {
+		margin-bottom: 1rem;
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Search Form
+.search-form {
+	position: relative;
+	
+	&__submit {
+		background-color: transparent;
+		-webkit-appearance: none;
+		border: none;
+		color: theme-color("light");
+		display: block;
+		position: absolute;
+		top: 50%;
+		#{$right}: 0;
+		padding: 0;
+		margin: 0;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		transform: translateY(-50%);
+		transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+
+		&:hover {
+			cursor: pointer;
+			color: $link-hover-color;
+		}
+
+		i {
+			display: inline-block;
+			line-height: 30px;
+			position: relative;
+		}
+	}
+}
+
+// jarallax
+.jarallax {
+	position: relative;
+	z-index: 0;
+
+	> .jarallax-img {
+		position: absolute;
+		object-fit: cover;
+		/* support for plugin https://github.com/bfred-it/object-fit-images */
+		font-family: 'object-fit: cover;';
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+}
+
+
+// Contact Form 7
+[dir="rtl"] {
+	div.wpcf7 .ajax-loader {
+		float: left;
+	}
+}
+
+div.wpcf7 .ajax-loader {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: none;
+	margin: 0 10px;
+
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		border: 3px solid theme-color("light");
+		border-color: theme-color("light") transparent theme-color("light") transparent;
+		animation: lds-dual-ring 1.2s linear infinite;
+	}
+
+	@keyframes lds-dual-ring {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+.btn-block + .ajax-loader {
+	display: block !important;
+	margin: 10px auto 0 auto !important;
+}
+
+span.wpcf7-not-valid-tip {
+	margin-top: -35px;
+	margin-bottom: 30px;
+}

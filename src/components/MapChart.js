@@ -23,8 +23,6 @@ const MapChart = ({ setTooltipContent }) => {
       .scale(160);
 
   const zoomOut = () => {
-    setCenter([118, -2]);
-    setZoom(5);
     setCurrentCountry(null);
   };
 
@@ -43,14 +41,11 @@ const MapChart = ({ setTooltipContent }) => {
       return;
     }
 
-    const path = geoPath().projection(projection());
-    const centroid = projection().invert(path.centroid(geography));
+    setCurrentCountry(geography.rsmKey);
 
-    setCenter(centroid);
-    setTimeout(() => {
-      setZoom(10);
-      setCurrentCountry(geography.rsmKey);
-    }, 300);
+    document.getElementById('list').scrollIntoView({
+      behavior: 'smooth'
+    });
   };
 
   return (
@@ -95,6 +90,13 @@ const MapChart = ({ setTooltipContent }) => {
           </ComposableMap>
         )}
       </Spring>
+
+      <div id="list" style={{ padding: '100px 10px' }}>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
+        dolor magnam similique, dolore molestiae sed aperiam? Deserunt quidem
+        quia reiciendis possimus numquam quaerat voluptatum totam tempore
+        temporibus delectus. Ut, totam!
+      </div>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+/**
+ *
+ * Google Map
+ *
+ */
+
+.no-map {
+	background-color: #222222;
+}
+
+// fix for Home page broken layout
+.elementor-element.elementor-widget-escapium-map .elementor-widget-empty-icon { height: 760px; }

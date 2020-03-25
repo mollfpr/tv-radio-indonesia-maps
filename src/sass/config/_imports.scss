@@ -1,0 +1,17 @@
+//- Config
+//- ----------------------------------------------
+
+// Boostrap
+// @import "../../vendor/bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// Directional (LTR or RTL)
+@import 'directional';
+
+// Template Mixins
+@import 'mixins';
+
+// Template Variables
+@import 'variables';

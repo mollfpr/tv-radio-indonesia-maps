@@ -1,0 +1,23 @@
+/**
+ *
+ * Blog Pagination
+ *
+ */
+
+.pagination--blog {
+	padding-top: 1.375rem;
+}
+
+/**
+ *
+ * Post Pagination
+ *
+ */
+
+.page-links {
+	padding-top: 1.375rem;
+	letter-spacing: 5px;
+	&-title {
+		letter-spacing: 0;
+	}
+}

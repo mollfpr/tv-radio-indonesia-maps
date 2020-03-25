@@ -1,0 +1,257 @@
+.woocommerce {
+	// Buttons
+	a.button {
+		display: block;
+		max-width: 100%;
+		font-weight: $btn-font-weight;
+		font-family: $btn-font-family;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: $btn-border-width solid transparent;
+		@include transition($btn-transition);
+		@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+		@include button-variant($primary, $primary);
+		&:after {
+			width: 16px;
+			height: 16px;
+			font-size: 16px;
+			line-height: 1;
+			top: .6em!important;
+			#{$right}: .6em!important;
+			@include media-breakpoint-up(lg) {
+				top: .8em!important;
+				#{$right}: .85em!important;
+			}
+		}
+		&.loading {
+			padding-#{$right}: 3em !important;
+		}
+		&.added {
+			&:after {
+				font-size: 15px;
+			}
+		}
+		@include media-breakpoint-up(xl) {
+			display: inline-block;
+		}
+		@include media-breakpoint-between(sm,sm) {
+			display: inline-block;
+		}
+	}
+
+	a.added_to_cart {
+		display: block;
+		margin-top: $btn-font-size;
+		font-weight: $btn-font-weight;
+		font-family: $btn-font-family;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: $btn-border-width solid transparent;
+		@include transition($btn-transition);
+		@include button-size($btn-padding-y, $btn-padding-x-sm, $btn-font-size, $btn-line-height, $btn-border-radius);
+		@include button-outline-variant($secondary, #fff);
+	}
+
+	// Badges
+	span.onsale {
+		min-height: auto;
+		min-width: auto;
+		text-transform: uppercase;
+		font-weight: $btn-font-weight;
+		font-family: $btn-font-family;
+		text-align: center;
+		white-space: nowrap;
+		user-select: none;
+		border: $btn-border-width solid transparent;
+		@include transition($btn-transition);
+		@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $line-height-sm, $btn-border-radius-sm);
+		background-color: $woocommerce-sale;
+		@include media-breakpoint-down(sm) {
+			padding: .15em .75em .1em;
+		}
+	}
+
+	ul.products li.product {
+		// Badges
+		.onsale {
+			margin-top: .5em;
+			margin-#{$right}: .5em;
+			@include media-breakpoint-up(md) {
+				margin-top: -1.5em;
+				margin-#{$right}: -1.5em;
+			}
+		}
+
+		// Product Thumbnail
+		a img {
+			margin-bottom: 0;
+		}
+
+		// Price
+		.price {
+			color: $light;
+			.amount {
+				font-weight: 700;
+			}
+
+			ins {
+				text-decoration: none;
+			}
+
+			del {
+				opacity: 1;
+				color: $body-color;
+			}
+		}
+	}
+
+	// Product Thumbnail
+	.woocommerce-loop-product__img-wrapper {
+		display: block;
+		position: relative;
+		max-width: 100%;
+		overflow: hidden;
+		margin-bottom: 1rem;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			#{$left}: -1px;
+			#{$right}: -1px;
+			bottom: -1px;
+			height: 50%;
+			background-image: linear-gradient(to bottom, transparent, $body-bg);
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			margin-bottom: 0;
+			transform: scale(1.1);
+			transition: transform 0.4s;
+		}
+
+		// Hover
+		&:hover {
+
+			img {
+				transform: scale(1);
+			}
+		}
+	}
+
+	.woocommerce-result-count {
+		margin: 0;
+		padding-top: 0.8rem;
+		padding-bottom: 0.8rem;
+	}
+
+	.woocommerce-ordering {
+		margin-bottom: 0;
+		@include media-breakpoint-down(xs) {
+			float: none;
+		} 
+		select {
+			vertical-align: baseline;
+		}
+	}
+
+	ul.products[class*=columns-] {
+		li.product {
+			margin-top: 3rem;
+			margin-bottom: 0;
+		}
+		@include media-breakpoint-down(sm) {
+			li.product {
+				margin-top: 3rem;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	ul.products:not(.columns-5):not(.columns-6) {
+		li.product {
+			@include media-breakpoint-up(md) {
+				margin-top: 4.25rem;
+				margin-bottom: 0;
+			}
+			// Product Thumbnail
+			.woocommerce-loop-product__img-wrapper {
+				@include media-breakpoint-up(md) {
+					margin-bottom: 1.5rem;
+				}
+			}
+			// Title
+			.woocommerce-loop-product__title {
+				@include media-breakpoint-up(md) {
+					font-size: 1.5rem;
+					line-height: 1.2;
+				}
+			}
+			// Price
+			.price {
+				@include media-breakpoint-up(md) {
+					font-size: 1.125rem;
+					line-height: 1.25;
+				}
+			}
+		}
+	}
+
+	&.columns-1,
+	&.columns-2,
+	&.columns-3,
+	&.columns-4,
+	& .columns-1,
+	& .columns-2,
+	& .columns-3,
+	& .columns-4 {
+		a.added_to_cart {
+			@include media-breakpoint-up(xl) {
+				display: inline-block;
+				font-size: 0;
+				height: 45px;
+				width: 45px;
+				margin-#{$left}: .5rem;
+				padding-#{$left}: 0;
+				padding-#{$right}: 0;
+				&:after {
+					content: "\f133";
+					font-family: "Ionicons";
+					font-size: 15px;
+				}
+			}
+			@include media-breakpoint-between(sm,sm) {
+				display: inline-block;
+				font-size: 0;
+				height: 45px;
+				width: 45px;
+				margin-#{$left}: .5rem;
+				padding-#{$left}: 0;
+				padding-#{$right}: 0;
+				&:after {
+					content: "\f133";
+					font-family: "Ionicons";
+					font-size: 15px;
+				}
+			}
+		}
+	}
+
+	&.columns-5,
+	&.columns-6 {
+		a.button {
+			display: block;
+		}
+	}
+}
+
+
+

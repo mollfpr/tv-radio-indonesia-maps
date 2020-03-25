@@ -1,0 +1,998 @@
+// Variables
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    'primary': $color-primary,
+    'secondary': $color-secondary,
+    'success': $color-success,
+    'info': $color-info,
+    'warning': $color-warning,
+    'danger': $color-danger
+  ),
+  $theme-colors
+);
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// mixins (import only used mixins for the dynamic styles)
+@import 'mixins/box-shadow';
+@import 'mixins/buttons';
+@import 'mixins/gradients';
+@import 'mixins/hover';
+
+// base / _404.scss
+
+// base / _base.scss
+
+body {
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+a {
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+// base / _content.scss
+
+// base / _footer.scss
+
+// base / _header-nav.scss
+
+.main-nav__list--hover-diagonal-line,
+.main-nav__list--hover-diagonal-line > ul,
+.main-nav__list--active-diagonal-line,
+.main-nav__list--active-diagonal-line > ul {
+  > li {
+    > a {
+      &::before {
+        background-color: $color-primary;
+      }
+    }
+  }
+}
+
+// base / _header-search.scss
+
+.search-form-control {
+  .search-form-toggler__icon {
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// base / _header.scss
+
+.header__logo--txt {
+  a {
+    background-color: $color-primary;
+  }
+}
+
+// base / _helpers.scss
+
+// base / _misc.scss
+
+.search-form {
+  &__submit {
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// base / _page-heading.scss
+
+.page-heading__title::after {
+  color: $color-primary;
+}
+
+// base / _preloader.scss
+
+// base / _wp-basic.scss
+
+// blog / _pagination.scss
+
+// blog / _post-author.scss
+
+// blog / _post-comments.scss
+
+.bypostauthor {
+  border-left-color: $color-primary;
+}
+
+// blog / _post-grid.scss
+
+.post-grid__thumb {
+  &::before {
+    background-image: linear-gradient(to bottom, transparent, $body-bg);
+  }
+}
+
+.post-grid__cat {
+  a {
+    color: $body-color;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// blog / _post-related.scss
+
+.btn-nav {
+  .post-related & {
+    &:hover {
+      span {
+        background-color: $color-primary;
+        &:before,
+        &:after {
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+// blog / _post.scss
+
+.post__body {
+  .sticky & {
+    border-left-color: $color-primary;
+  }
+}
+
+.post__tax-item,
+.post__meta-item {
+  > a {
+    color: $body-color;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// booked / _booked-animations.scss
+
+// booked / _booked-color-theme.scss
+
+body {
+  table.booked-calendar tr.days,
+  table.booked-calendar tr.days th,
+  .booked-calendarSwitcher.calendar,
+  #ui-datepicker-div.booked_custom_date_picker
+    table.ui-datepicker-calendar
+    thead,
+  #ui-datepicker-div.booked_custom_date_picker
+    table.ui-datepicker-calendar
+    thead
+    th {
+    background: $color-secondary !important;
+  }
+
+  table.booked-calendar tr.days th {
+    border-color: $color-secondary !important;
+  }
+}
+
+body {
+  #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a,
+	#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a:hover,
+	#booked-profile-page input[type="submit"].button-primary,
+	table.booked-calendar input[type="submit"].button-primary,
+	.booked-list-view button.button,
+	.booked-list-view input[type="submit"].button-primary,
+	.booked-list-view button.button,
+	.booked-list-view input[type="submit"].button-primary,
+	.booked-modal input[type="submit"].button-primary,
+	table.booked-calendar .booked-appt-list .timeslot .timeslot-people button,
+	#booked-profile-page .appt-block .google-cal-button > a,
+	.booked-modal p.booked-title-bar,
+	table.booked-calendar td:hover .date span,
+	.booked-list-view a.booked_list_date_picker_trigger.booked-dp-active,
+	.booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover,
+	.booked-ms-modal .booked-book-appt /* Multi-Slot Booking */
+	 {
+    background: $color-primary;
+  }
+
+  #booked-profile-page input[type='submit'].button-primary,
+  table.booked-calendar input[type='submit'].button-primary,
+  .booked-list-view button.button,
+  .booked-list-view input[type='submit'].button-primary,
+  .booked-list-view button.button,
+  .booked-list-view input[type='submit'].button-primary,
+  .booked-modal input[type='submit'].button-primary,
+  #booked-profile-page .appt-block .google-cal-button > a,
+  table.booked-calendar .booked-appt-list .timeslot .timeslot-people button,
+  .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active,
+  .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover {
+    border-color: $color-primary;
+  }
+
+  .booked-modal .bm-window p i.fa,
+  .booked-modal .bm-window a,
+  .booked-appt-list .booked-public-appointment-title,
+  .booked-modal .bm-window p.appointment-title,
+  .booked-ms-modal.visible:hover .booked-book-appt,
+  #booked-profile-page
+    .booked-profile-appt-list
+    a.booked-show-cf.booked-cf-active,
+  #booked-profile-page .booked-fea-appt-list a.booked-show-cf.booked-cf-active {
+    color: $color-primary;
+  }
+}
+
+body .booked-custom-error,
+#booked-plugin-page p.booked-form-notice,
+#booked-profile-page p.booked-form-notice {
+  background-color: $color_warning;
+  border-color: $color_warning;
+}
+
+// booked / _booked-icons.scss
+
+// booked / _booked-responsive.scss
+
+// booked / _booked-style.scss
+
+table.booked-calendar {
+  th {
+    .page-right,
+    .page-left {
+      &:hover {
+        &::before,
+        &::after {
+          background-color: $color-primary;
+        }
+        .booked-icon {
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+  td.booked {
+    .date,
+    &:hover .date,
+    .date span,
+    &:hover .date span {
+      color: $color-primary;
+    }
+  }
+  td.today {
+    .date {
+      span {
+        border-color: $color-primary;
+      }
+    }
+    &:hover {
+      .date {
+        span {
+          background: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.booked-calendar-wrap {
+  .booked-appt-list {
+    .timeslot {
+      .timeslot-title {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+body.page {
+  #profile-login,
+  #profile-forgot,
+  #profile-register {
+    .booked-form-wrap {
+      &,
+      .form-submit {
+        input[type='submit'].button-primary {
+          &:hover {
+            border-color: darken($color-primary, 10%) !important;
+            background-color: darken($color-primary, 7.5%) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.page #booked-profile-page {
+  .booked-profile-header {
+    .booked-logout-button {
+      @include button-outline-variant($color-secondary, #fff);
+    }
+  }
+  .form-submit {
+    input[type='submit'].button-primary {
+      &:hover {
+        border-color: darken($color-primary, 10%) !important;
+        background-color: darken($color-primary, 7.5%) !important;
+      }
+    }
+  }
+  .text-input {
+    border-bottom-color: $color-secondary;
+  }
+}
+
+#booked-profile-page {
+  .booked-profile-appt-list,
+  .booked-fea-appt-list {
+    .appt-block {
+      &.approved {
+        & > i.booked-icon {
+          color: $color-primary;
+        }
+        .status-block {
+          .booked-icon {
+            color: $color-primary;
+          }
+        }
+      }
+      .booked-cal-buttons {
+        .pay,
+        .google-cal-button {
+          @include button-variant($color-primary, $color-primary);
+        }
+        .edit,
+        .cancel {
+          @include button-outline-variant($color-secondary, #fff);
+        }
+      }
+    }
+  }
+}
+
+.booked-upload-wrap {
+  @include button-outline-variant($color-secondary, #fff);
+}
+
+#profile-login .login-username input,
+#profile-login .login-password input,
+#profile-forgot .username input,
+#profile-register .name input,
+#profile-register .surname input,
+#profile-register .email input,
+#profile-register .password input {
+  border-bottom-color: $color-secondary;
+}
+
+// components / _accordion.scss
+
+.accordion__item-header {
+  .section-content--tertiary & {
+    h3 {
+      color: $color-secondary;
+    }
+  }
+
+  &:hover,
+  .section-content--tertiary &:hover {
+    h3 {
+      color: $color-primary;
+    }
+  }
+}
+
+// components / _alert.scss
+
+.alert-success,
+.woocommerce-notice--success,
+div.wpcf7-mail-sent-ok {
+  background-color: $color-success;
+}
+.alert-info,
+.woocommerce-info {
+  background-color: $color-info;
+}
+.alert-warning,
+.woocommerce-message,
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing,
+div.wpcf7-spam-blocked {
+  background-color: $color-warning;
+}
+.alert-danger,
+.woocommerce-error,
+div.wpcf7-mail-sent-ng,
+div.wpcf7-aborted {
+  background-color: $color-danger;
+}
+
+// components / _breadcrumb.scss
+
+.trail-item {
+  &.active {
+    color: $body-color;
+  }
+}
+.breadcrumbs > div > span {
+  color: $body-color;
+}
+
+// components / _buttons.scss
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value, #fff);
+  }
+}
+
+.btn-link {
+  @include hover-focus {
+    color: $color-primary;
+  }
+}
+
+.btn-link--dash {
+  &::before {
+    background-color: $color-primary;
+  }
+}
+
+// components / _certificates.scss
+
+// components / _contact-info.scss
+
+// components / _custom-forms.scss
+
+.custom-control-input {
+  &:checked ~ .custom-control-label::before {
+    @include gradient-bg($color-primary);
+  }
+}
+
+.custom-control-label {
+  &::before {
+    border-color: $color-secondary;
+  }
+}
+
+.custom-checkbox {
+  .custom-control-input:checked ~ .custom-control-label {
+    &::before {
+      border-color: $color-primary;
+      @include gradient-bg($color-primary);
+    }
+  }
+
+  .custom-control-input:indeterminate ~ .custom-control-label {
+    &::before {
+      @include gradient-bg($color-primary);
+    }
+  }
+}
+
+.custom-radio {
+  .custom-control-input:checked ~ .custom-control-label {
+    &::before {
+      @include gradient-bg($color-primary);
+    }
+  }
+}
+
+.custom-control-input {
+  &:active ~ .custom-control-label::before {
+    background-color: lighten($color-primary, 35%);
+  }
+}
+
+// components / _dropdown.scss
+
+// components / _features-list.scss
+
+.features-list__icon {
+  &,
+  #elementor &,
+  .elementor-widget-escapium-features-list & {
+    color: $color-primary;
+  }
+}
+
+.features-list__title {
+  &,
+  #elementor &,
+  .elementor-widget-escapium-features-list & {
+    color: #fff;
+  }
+}
+
+// components / _forms.scss
+
+select,
+.form-control,
+.wpcf7-form-control:not(.wpcf7-submit),
+.post-password-form input:not([type='submit']) {
+  border-bottom-color: $color-secondary;
+}
+
+.post-password-form input[type='submit'] {
+  @include button-outline-variant($color-secondary, #fff);
+}
+
+select {
+  color: $body-color;
+}
+
+// components / _gmap.scss
+
+// components / _icobox.scss
+
+.icobox__icon-wrapper {
+  &::before {
+    background-color: $color-secondary;
+  }
+}
+
+.icobox__icon {
+  border-color: $color-secondary;
+  background-color: $body-bg;
+}
+
+// components / _magnific-popup.scss
+
+// components / _main-slider.scss
+
+// components / _pagination.scss
+
+a.page-numbers,
+span.page-numbers {
+  border-color: $color-secondary;
+  @include hover-focus {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
+ul.page-numbers li {
+  .page-numbers.current {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
+// components / _revolution-slider.scss
+
+.home-slider .tp-revslider-mainul li {
+  &::after {
+    background-image: linear-gradient(to bottom, transparent, $body-bg);
+  }
+}
+
+// components / _social-links.scss
+
+.social-links__link {
+  &:hover,
+  &:focus {
+    &::before,
+    &::after {
+      background-color: $color-primary;
+    }
+
+    &::before {
+      background-color: #fff;
+    }
+  }
+}
+
+// components / _sprites.scss
+
+// components / _team.scss
+
+.team-member--hover .team-member__photo {
+  &:hover {
+    &::before {
+      border-color: $color-primary;
+    }
+  }
+}
+
+// components / _testimonials.scss
+
+.testimonial__author-name {
+  color: $body-color;
+}
+
+// content / _section.scss
+
+.section-content--tertiary {
+  a:not([class]) {
+    color: theme-color('secondary');
+  }
+}
+
+.section-heading__subtitle {
+  > a {
+    color: $color-primary;
+    &::before {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.icon-media {
+  background-color: $color-primary;
+}
+
+// content / _type.scss
+
+ul.list,
+.post__excerpt ul,
+.comment__body ul {
+  li {
+    &::before {
+      color: $color-primary;
+    }
+  }
+}
+
+// elementor / _elementor.scss
+
+.elementor {
+  .elementor-custom-embed-play {
+    &:after {
+      background-color: $color-primary;
+    }
+  }
+}
+
+// media / _captions.scss
+
+// media / _galleries.scss
+
+.gallery-item {
+  a {
+    &::before,
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+  .gallery-icon {
+    &::before,
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+}
+
+// media / _media.scss
+
+// rooms / _room-filter.scss
+
+// rooms / _room-meta.scss
+
+.room__meta-item {
+  color: $body-color;
+}
+
+.room__meta-item {
+  .rating-icons__placeholder {
+    i {
+      color: #5a5a5a;
+    }
+  }
+}
+
+// rooms / _room-rating-bars.scss
+
+.rating-bars__bars {
+  &.rating-bars__bars-1 {
+    .bar {
+      &:nth-child(1) {
+        background-color: $color-primary;
+      }
+    }
+  }
+  &.rating-bars__bars-2 {
+    .bar {
+      &:nth-child(1),
+      &:nth-child(2) {
+        background-color: $color-primary;
+      }
+    }
+  }
+  &.rating-bars__bars-3 {
+    .bar {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        background-color: $color-primary;
+      }
+    }
+  }
+  &.rating-bars__bars-4 {
+    .bar {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        background-color: $color-primary;
+      }
+    }
+  }
+  &.rating-bars__bars-5 {
+    .bar {
+      background-color: $color-primary;
+    }
+  }
+}
+
+// rooms / _room-rating.scss
+
+.rating {
+  .rating__inner {
+    &::before {
+      color: $color-primary;
+    }
+  }
+}
+
+// Rating icons based on icons output
+.rating-icons__active {
+  &,
+  i {
+    color: $color-primary;
+  }
+}
+
+// rooms / _room-single.scss
+
+.room-slider__item {
+  &::after {
+    background-image: linear-gradient(to bottom, transparent, $body-bg);
+  }
+}
+
+// rooms / _room.scss
+
+.rooms--has-icon {
+  .room__img {
+    a {
+      &::before {
+        background-color: $color-primary;
+      }
+    }
+  }
+}
+
+// widgets / _widget-archive.scss
+
+// widgets / _widget-categories.scss
+
+// widgets / _widget-instagram.scss
+
+// Smash Balloon Instagram Feed
+.sbi_photo_wrap {
+  // Left & Right Border
+  &::before,
+  &::after {
+    background-color: $color-primary;
+  }
+}
+
+.sbi_photo {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  // Top & Bottom Border
+  &::before,
+  &::after {
+    background-color: $color-primary;
+  }
+}
+
+.widget-instagram__plus-sign,
+.widget-instagram__link-wrapper {
+  &::before,
+  &::after {
+    background-color: $color-primary;
+  }
+}
+
+#sb_instagram {
+  // Follow and Load More buttons buton
+  .sbi_follow_btn a,
+  #sbi_load .sbi_load_btn {
+    @include button-outline-variant($color-secondary, #fff);
+  }
+}
+
+// widgets / _widget-posts.scss
+
+.posts-list__date {
+  color: $body-color;
+}
+
+// widgets / _widget-schedule.scss
+
+// widgets / _widget-social-links.scss
+
+// widgets / _widget-tags.scss
+
+// widgets / _widget.scss
+
+.widget_archive,
+.widget_nav_menu,
+.widget_meta,
+.widget_pages,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_categories,
+.widget_rss {
+  ul {
+    li {
+      a {
+        color: $body-color;
+        &:hover {
+          &::before {
+            background-color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.widget--footer {
+  .widget__header {
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.widget_calendar {
+  caption {
+    color: $body-color;
+  }
+}
+
+// _slick.scss
+
+.slick-prev,
+.slick-next {
+  border-color: $color-secondary;
+  &:hover,
+  &:focus {
+    background-color: $color-secondary;
+  }
+}
+
+.slick-arrow-divider {
+  background-color: $color-secondary;
+}
+
+.slick--arrows-modern {
+  .slick-prev-arrow,
+  .slick-next-arrow {
+    &::before,
+    &::after {
+      .section-content--tertiary & {
+        background-color: $color-secondary;
+      }
+    }
+    span {
+      .section-content--tertiary & {
+        background-color: $color-secondary;
+      }
+    }
+    &:hover {
+      &::before,
+      &::after {
+        background-color: $color-primary;
+      }
+      span {
+        background-color: $color-primary;
+      }
+    }
+  }
+}
+
+// Page Preloader
+
+.preloader {
+  background-color: $color-primary;
+}
+
+// Woocommerce
+
+.woocommerce {
+  span.onsale {
+    background-color: $woo_sale;
+  }
+  div.product .out-of-stock {
+    color: $woo_out_of_stock;
+  }
+}
+
+.woocommerce a.button,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce button.woocommerce-Button,
+.woocommerce #respond input#submit.alt,
+.woocommerce-checkout #payment button.button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .checkout_coupon.woocommerce-form-coupon button.button {
+  @include button-variant($color-primary, $color-primary);
+}
+
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-notice,
+.woocommerce-message {
+  a.button.woocommerce-Button {
+    @include button-variant($color-secondary, $color-secondary);
+  }
+}
+
+.woocommerce a.added_to_cart,
+.woocommerce-cart .coupon .button,
+.woocommerce-cart
+  .shop_table.woocommerce-cart-form__contents
+  .actions
+  > .button {
+  @include button-outline-variant($color-secondary, #fff);
+}
+
+.woocommerce-cart .quantity,
+.woocommerce form.woocommerce-form,
+.woocommerce form.woocommerce-EditAccountForm,
+.woocommerce-cart table.cart td.actions .coupon,
+.woocommerce-checkout .woocommerce-billing-fields,
+.woocommerce-checkout .woocommerce-shipping-fields,
+.woocommerce-checkout .woocommerce-additional-fields,
+.woocommerce div.product div.entry-summary .quantity,
+.woocommerce-checkout .checkout_coupon.woocommerce-form-coupon {
+  .input-text {
+    border-bottom-color: $color-secondary;
+    &:focus {
+      border-bottom-color: #fff;
+    }
+  }
+}
+
+.woocommerce-checkout .select2-selection {
+  border-bottom-color: $color-secondary;
+}
+
+.woocommerce .woocommerce-MyAccount-navigation ul li a:hover::before {
+  background-color: $color-primary;
+}
+
+.woocommerce
+  form.woocommerce-form-login
+  .woocommerce-form__label-for-checkbox
+  span:before {
+  border-color: $color-secondary;
+}
+
+.woocommerce
+  form.woocommerce-form-login
+  .woocommerce-form__label-for-checkbox
+  input:checked
+  ~ span::before {
+  border-color: $color-primary;
+  background-color: $color-primary;
+}

@@ -1,0 +1,44 @@
+/**
+ *
+ * Rating
+ *
+ */
+
+.rating {
+	
+}
+
+
+// Rating icons based on icons output
+.rating-icons {
+	overflow: hidden;
+	position: relative;
+	height: 1em;
+	line-height: 1em;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: normal;
+	margin-bottom: 1rem;
+	white-space: nowrap;
+	text-align: $left;
+	display: inline-block;
+
+	i,
+	[class*='fa-'] {
+		margin-#{$right}: 6px;
+
+		&:last-child {
+			margin-#{$right}: 0;
+		}
+	}
+}
+	.rating-icons__placeholder {
+		color: $rating-color;
+	}
+	.rating-icons__active {
+		display: block;
+		position: absolute;
+		#{$left}: 0;
+		top: 0;
+		color: $rating-color-active;
+	}

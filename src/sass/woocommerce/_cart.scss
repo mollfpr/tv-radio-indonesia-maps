@@ -1,0 +1,192 @@
+.woocommerce-cart {
+	.woocommerce-cart-form {
+		background-color: $box-bg;
+		padding: $box-padding / 2;
+		box-shadow: $box-drop-shadow;
+
+		@include media-breakpoint-up(md) {
+			padding: $box-padding;
+		}
+		margin-bottom: 3rem;
+
+		table {
+			thead th {
+				border-top: 2px solid rgba(255,255,255,.05);
+				border-bottom-color: rgba(255,255,255,.05);
+			}
+			th {
+				border-top: none;
+			}
+			td {
+				color: #fff;
+				border-color: rgba(255,255,255,.05);
+			}
+			tbody {
+				> tr:first-child {
+					td {
+						border-top: none;
+					}
+				}
+			}
+			th, td {
+				padding-top: 24px;
+				padding-bottom: 24px;
+			}
+		}
+
+		.actions {
+			padding-top: 2rem;
+			padding-#{$left}: 0;
+			padding-#{$right}: 0;
+		}
+
+	}
+
+	.woocommerce a.remove {
+		line-height: 1.2;
+	}
+
+	.cart-collaterals {
+		.cart_totals {
+			background-color: $box-bg;
+			padding: $box-padding / 2;
+			box-shadow: $box-drop-shadow;
+
+			@include media-breakpoint-up(md) {
+				padding: $box-padding;
+			}
+
+			> h2 {
+				margin-bottom: 2rem;
+			}
+
+			table {
+				tbody {
+					> tr:first-child {
+						th, td {
+							border-top: 2px solid rgba(255,255,255,.05);
+						}
+					}
+					> tr:last-child {
+						th, td {
+							border-bottom: 1px solid rgba(255,255,255,.05);
+						}
+					}
+				}
+				th, td {
+					padding-top: 24px;
+					padding-bottom: 24px;
+				}
+			}
+
+			td {
+				color: #fff;
+			}
+
+			tr th,
+			tr td {
+				border-color: rgba(255,255,255,.05);
+			}
+
+
+		}
+	}
+
+	.wc-proceed-to-checkout {
+		padding-top: 2rem;
+	}
+
+	table.shop_table {
+		margin-bottom: 0;
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	.coupon {
+		.button {
+			display: inline-block;
+			font-weight: $btn-font-weight;
+			font-family: $btn-font-family;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			user-select: none;
+			border: $btn-border-width solid transparent;
+			@include transition($btn-transition);
+			@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+			@include button-outline-variant($secondary, #fff);
+		}
+	}
+
+	.quantity {
+		.input-text {
+			padding: $input-padding-y-sm $input-padding-x-sm;
+			font-size: $font-size-base;
+			line-height: $input-line-height;
+			color: $input-color;
+			background-color: $input-bg;
+			background-clip: padding-box;
+
+			// custom
+			border: none;
+			border-bottom: $input-border-width solid $input-border-color;
+		}
+	}
+
+	table.cart td.actions {
+		.coupon {
+			.input-text {
+				display: block;
+				width: 100%;
+				min-width: 130px;
+				margin-#{$right}: 10px;
+				padding: 0.5815rem 0;
+				font-size: $font-size-base;
+				line-height: $input-line-height;
+				color: $input-color;
+				background-color: $input-bg;
+				background-clip: padding-box;
+
+				// custom
+				border: none;
+				border-bottom: $input-border-width solid $input-border-color;
+			}
+		}
+	}
+
+	.shop_table.woocommerce-cart-form__contents .actions {
+		> .button {
+			display: inline-block;
+			font-weight: $btn-font-weight;
+			font-family: $btn-font-family;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			user-select: none;
+			border: $btn-border-width solid transparent;
+			@include transition($btn-transition);
+			@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+			@include button-outline-variant($secondary, #fff);
+			@include media-breakpoint-down(sm) {
+				margin-top: 2rem;
+			}
+		}
+	}
+
+	.wc-proceed-to-checkout {
+		a.checkout-button {
+			display: inline-block;
+			width: 100%;
+			font-weight: $btn-font-weight;
+			font-family: $btn-font-family;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			user-select: none;
+			border: $btn-border-width solid transparent;
+			@include transition($btn-transition);
+			@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $line-height-lg, $btn-border-radius-lg);
+			@include button-variant($primary, $primary);
+		}
+	}
+}
