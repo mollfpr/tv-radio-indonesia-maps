@@ -90,13 +90,6 @@ const MapChart = ({ setTooltipContent }) => {
           </ComposableMap>
         )}
       </Spring>
-
-      <div id="list" style={{ padding: '100px 10px' }}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
-        dolor magnam similique, dolore molestiae sed aperiam? Deserunt quidem
-        quia reiciendis possimus numquam quaerat voluptatum totam tempore
-        temporibus delectus. Ut, totam!
-      </div>
     </div>
   );
 };
