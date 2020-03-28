@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import './sass/App.scss';
 import './assets/css/simple-line-icons.css';
@@ -6,11 +6,40 @@ import './assets/css/ionicons.min.css';
 import Maps from './components/Maps';
 import PageTitle from './components/PageTitle';
 import PageList from './components/PageList';
+import { MapContext } from './components/contexts/MapContex';
+import clsx from 'clsx';
+import StickyButton from './components/StickyButton';
+import { Transition } from 'react-spring/renderprops';
 
 const App = () => {
+  const [currentCountry, setCurrentCountry] = useState(null);
+  const [televisions, setTelevisions] = useState(null);
+
+  const handleGeographyClick = ({ properties }) => {
+    const { provinsi, televisions } = properties;
+    document.getElementById('list').style.minHeight = '600px';
+    setCurrentCountry(null);
+    document.getElementById('list').scrollIntoView({
+      behavior: 'smooth'
+    });
+    setTimeout(() => {
+      setCurrentCountry(provinsi);
+      setTelevisions(televisions || null);
+    }, 500);
+  };
+
+  const handleReset = () => {
+    setCurrentCountry(null);
+    document.getElementById('maps').scrollIntoView({
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="site-wrapper">
       <Header></Header>
+
+      <StickyButton onReset={handleReset}></StickyButton>
 
       <main id="content" class="site-content">
         <div class="section-content">
@@ -30,11 +59,36 @@ const App = () => {
                     <div class="elementor-section-wrap">
                       <PageTitle title="List Radio Indonesia"></PageTitle>
 
-                      <Maps></Maps>
+                      <div id="maps">
+                        <MapContext.Provider
+                          value={{
+                            onGeographyClick: handleGeographyClick,
+                            currentCountry
+                          }}
+                        >
+                          <Maps></Maps>
+                        </MapContext.Provider>
+                      </div>
 
-                      <PageTitle title="Jakarta"></PageTitle>
+                      <div id="list">
+                        <Transition
+                          items={!!currentCountry}
+                          from={{ opacity: 0 }}
+                          enter={{ opacity: 1 }}
+                          leave={{ opacity: 0 }}
+                        >
+                          {show =>
+                            show &&
+                            (props => (
+                              <div style={props}>
+                                <PageTitle title={currentCountry}></PageTitle>
 
-                      <PageList></PageList>
+                                <PageList televisions={televisions}></PageList>
+                              </div>
+                            ))
+                          }
+                        </Transition>
+                      </div>
                     </div>
                   </div>
                 </div>

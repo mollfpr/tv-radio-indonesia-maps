@@ -1,6 +1,7 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 import PageListItem from './PageListItem';
+import { Trail } from 'react-spring/renderprops';
 
 const radio = [
   'Hard Rock FM (PM2FPB)',
@@ -11,12 +12,13 @@ const radio = [
   'Global Radio'
 ];
 
-const PageList = () => (
+const PageList = ({ televisions }) => (
   <Wrapper>
     <ul class="features-list list-unstyled">
-      {radio.map((o, index) => (
-        <PageListItem key={index} label={o}></PageListItem>
-      ))}
+      {televisions &&
+        televisions.map((television, index) => (
+          <PageListItem isTelevision television={television}></PageListItem>
+        ))}
     </ul>
   </Wrapper>
 );

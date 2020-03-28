@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   ComposableMap,
   Geographies,
@@ -8,13 +8,14 @@ import {
 import { geoPath } from 'd3-geo';
 import { geoTimes } from 'd3-geo-projection';
 import { Spring, config } from 'react-spring/renderprops';
+import { MapContext } from './contexts/MapContex';
 
-const geoUrl = 'https://api.jsonbin.io/b/5e760c24b325b3162e3bb960';
+const geoUrl = require('../data/provinces-simplified-topo.json');
 
 const MapChart = ({ setTooltipContent }) => {
+  const { currentCountry, onGeographyClick } = useContext(MapContext);
   const [center, setCenter] = useState([118, -2]);
   const [zoom, setZoom] = useState(5);
-  const [currentCountry, setCurrentCountry] = useState(null);
   const [width, height] = [800, 450];
 
   const projection = () =>
@@ -22,9 +23,9 @@ const MapChart = ({ setTooltipContent }) => {
       .translate([width / 2, height / 2])
       .scale(160);
 
-  const zoomOut = () => {
-    setCurrentCountry(null);
-  };
+  //   const zoomOut = () => {
+  //     setCurrentCountry(null);
+  //   };
 
   const handleMounseEnter = ({ properties }) => {
     const { provinsi } = properties;
@@ -33,20 +34,20 @@ const MapChart = ({ setTooltipContent }) => {
 
   const handleMouseLeave = () => setTooltipContent('');
 
-  const handleGeographyClick = geography => {
-    const { rsmKey } = geography;
+  //   const handleGeographyClick = geography => {
+  //     const { rsmKey } = geography;
 
-    if (rsmKey === currentCountry) {
-      zoomOut();
-      return;
-    }
+  //     if (rsmKey === currentCountry) {
+  //       zoomOut();
+  //       return;
+  //     }
 
-    setCurrentCountry(geography.rsmKey);
+  //     setCurrentCountry(geography.rsmKey);
 
-    document.getElementById('list').scrollIntoView({
-      behavior: 'smooth'
-    });
-  };
+  //     document.getElementById('list').scrollIntoView({
+  //       behavior: 'smooth'
+  //     });
+  //   };
 
   return (
     <div>
@@ -66,7 +67,7 @@ const MapChart = ({ setTooltipContent }) => {
                       geography={geo}
                       onMouseEnter={() => handleMounseEnter(geo)}
                       onMouseLeave={handleMouseLeave}
-                      onClick={() => handleGeographyClick(geo)}
+                      onClick={() => onGeographyClick(geo)}
                       style={{
                         default: {
                           fill:

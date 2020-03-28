@@ -24,41 +24,32 @@ h5 {
   color: #fff;
 }
 
-.App {
-  text-align: center;
+button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px 0;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f60b0e, #fe898a);
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.content-list {
+  opacity: 0;
+  transition: opacity 300ms ease;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  &--show {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sticky {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
 }
