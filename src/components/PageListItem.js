@@ -5,9 +5,14 @@ const PageListItem = ({ isTelevision, television }) => (
     <div class="features-list__icon">
       <i class={`ion-${isTelevision ? 'monitor' : 'radio-waves'}`}></i>
     </div>
-    <h5 class="features-list__title">{television.name}</h5>
     <div>
-      <span>{television.genre}</span>&bull;<span>{television.group}</span>
+      <div className="d-flex justify-content-center align-items-center">
+        <h5 className="features-list__title">{television.name}</h5> &bull;{' '}
+        <span className="feature-list__genre">{television.genre}</span>
+      </div>
+      <div>
+        <span>{television.group}</span>
+      </div>
     </div>
   </li>
 );

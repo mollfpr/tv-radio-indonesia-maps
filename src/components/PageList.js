@@ -12,12 +12,16 @@ const radio = [
   'Global Radio'
 ];
 
-const PageList = ({ televisions }) => (
+const PageList = ({ televisions, radio }) => (
   <Wrapper>
     <ul class="features-list list-unstyled">
       {televisions &&
         televisions.map((television, index) => (
           <PageListItem isTelevision television={television}></PageListItem>
+        ))}
+      {radio &&
+        radio.map((radio, index) => (
+          <PageListItem radio={radio}></PageListItem>
         ))}
     </ul>
   </Wrapper>

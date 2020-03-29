@@ -10,10 +10,13 @@ import { MapContext } from './components/contexts/MapContex';
 import clsx from 'clsx';
 import StickyButton from './components/StickyButton';
 import { Transition } from 'react-spring/renderprops';
+import PageNav from './components/PageNav';
 
 const App = () => {
   const [currentCountry, setCurrentCountry] = useState(null);
   const [televisions, setTelevisions] = useState(null);
+  const [radio, setRadio] = useState(null);
+  const [activeTab, setActiveTab] = useState('television');
 
   const handleGeographyClick = ({ properties }) => {
     const { provinsi, televisions } = properties;
@@ -34,6 +37,8 @@ const App = () => {
       behavior: 'smooth'
     });
   };
+
+  const handleTabClick = tab => setActiveTab(tab);
 
   return (
     <div className="site-wrapper">
@@ -83,7 +88,19 @@ const App = () => {
                               <div style={props}>
                                 <PageTitle title={currentCountry}></PageTitle>
 
-                                <PageList televisions={televisions}></PageList>
+                                <PageNav
+                                  onTabClick={handleTabClick}
+                                  activeTab={activeTab}
+                                ></PageNav>
+
+                                {activeTab === 'television' && (
+                                  <PageList
+                                    televisions={televisions}
+                                  ></PageList>
+                                )}
+                                {activeTab === 'radio' && (
+                                  <PageList radio={radio}></PageList>
+                                )}
                               </div>
                             ))
                           }
