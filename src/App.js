@@ -33,7 +33,7 @@ const App = () => {
 
   const handleReset = () => {
     setCurrentCountry(null);
-    document.getElementById('maps').scrollIntoView({
+    document.getElementById('content').scrollIntoView({
       behavior: 'smooth'
     });
   };
