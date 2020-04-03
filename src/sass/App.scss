@@ -33,10 +33,14 @@ button {
   font-size: 18px;
   letter-spacing: 2px;
   border: none;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #f60b0e, #fe898a);
+  background: transparent;
   text-transform: uppercase;
   font-weight: 700;
+
+  i {
+    font-size: 40px;
+    color: #fff;
+  }
 }
 
 .content-list {
@@ -58,10 +62,27 @@ button {
   background-color: #f6090f;
 }
 
-.features-list__title {
+.features-list__title,
+.features-list__group {
   margin-right: 10px;
 }
 
-.feature-list__genre {
+.feature-list__genre,
+.features-list__website {
   margin-left: 10px;
+}
+
+.features-list__website {
+  font-style: italic;
+}
+
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+
+.fs-mid {
+  font-size: 14px !important;
 }

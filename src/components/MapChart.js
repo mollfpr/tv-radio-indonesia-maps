@@ -1,12 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   ComposableMap,
   Geographies,
   Geography,
   ZoomableGroup
 } from 'react-simple-maps';
-import { geoPath } from 'd3-geo';
-import { geoTimes } from 'd3-geo-projection';
 import { Spring, config } from 'react-spring/renderprops';
 import { MapContext } from './contexts/MapContex';
 
@@ -14,18 +12,9 @@ const geoUrl = require('../data/provinces-simplified-topo.json');
 
 const MapChart = ({ setTooltipContent }) => {
   const { currentCountry, onGeographyClick } = useContext(MapContext);
-  const [center, setCenter] = useState([118, -2]);
-  const [zoom, setZoom] = useState(5);
-  const [width, height] = [800, 450];
-
-  const projection = () =>
-    geoTimes()
-      .translate([width / 2, height / 2])
-      .scale(160);
-
-  //   const zoomOut = () => {
-  //     setCurrentCountry(null);
-  //   };
+  const center = [118, -2];
+  const zoom = 5;
+  const [width, height] = [500, 250];
 
   const handleMounseEnter = ({ properties }) => {
     const { provinsi } = properties;
@@ -33,21 +22,6 @@ const MapChart = ({ setTooltipContent }) => {
   };
 
   const handleMouseLeave = () => setTooltipContent('');
-
-  //   const handleGeographyClick = geography => {
-  //     const { rsmKey } = geography;
-
-  //     if (rsmKey === currentCountry) {
-  //       zoomOut();
-  //       return;
-  //     }
-
-  //     setCurrentCountry(geography.rsmKey);
-
-  //     document.getElementById('list').scrollIntoView({
-  //       behavior: 'smooth'
-  //     });
-  //   };
 
   return (
     <div>
@@ -57,7 +31,7 @@ const MapChart = ({ setTooltipContent }) => {
         config={config.slow}
       >
         {styles => (
-          <ComposableMap data-tip="" width={width} height={height}>
+          <ComposableMap data-tip='' width={width} height={height}>
             <ZoomableGroup center={styles.center} zoom={styles.zoom}>
               <Geographies geography={geoUrl}>
                 {({ geographies }) =>
