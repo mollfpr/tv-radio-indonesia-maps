@@ -21,7 +21,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('television');
   const [loading, setLoading] = useState(false);
 
-  const getTelevisions = async province => {
+  const getTelevisions = async (province) => {
     setLoading(true);
 
     const data = await apiTelevisions(province);
@@ -30,7 +30,7 @@ const App = () => {
     setLoading(false);
   };
 
-  const getRadios = async province => {
+  const getRadios = async (province) => {
     setLoading(true);
 
     const data = await apiRadios(province);
@@ -44,7 +44,7 @@ const App = () => {
     document.getElementById('list').style.minHeight = '600px';
     setCurrentCountry(null);
     document.getElementById('list').scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
     setTimeout(() => {
       setCurrentCountry(provinsi);
@@ -56,11 +56,11 @@ const App = () => {
   const handleReset = () => {
     setCurrentCountry(null);
     document.getElementById('content').scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
-  const handleTabClick = tab => {
+  const handleTabClick = (tab) => {
     if (tab === 'televisions') {
       getTelevisions(currentCountry);
     } else {
@@ -92,13 +92,13 @@ const App = () => {
                 >
                   <div class='elementor-inner'>
                     <div class='elementor-section-wrap'>
-                      <PageTitle title='List Radio Indonesia'></PageTitle>
+                      <PageTitle title='List TV & Radio Indonesia'></PageTitle>
 
                       <div id='maps' className='map-container'>
                         <MapContext.Provider
                           value={{
                             onGeographyClick: handleGeographyClick,
-                            currentCountry
+                            currentCountry,
                           }}
                         >
                           <Maps></Maps>
@@ -112,9 +112,9 @@ const App = () => {
                           enter={{ opacity: 1 }}
                           leave={{ opacity: 0 }}
                         >
-                          {show =>
+                          {(show) =>
                             show &&
-                            (props => (
+                            ((props) => (
                               <div style={props}>
                                 <PageTitle title={currentCountry}></PageTitle>
 
